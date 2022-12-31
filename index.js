@@ -10,10 +10,10 @@ module.exports = {
 	encode: function(data) {
 		var arrType = new Uint8Array([data[0]]);
 		var encodedContent = enc(data[1]);
-		var data = new Uint8Array(encodedContent.length + arrType.length); //creating space
-		data.set(encodedContent, 0);
-		data.set(arrType, encodedContent.length);
-		return data;
+		var edata = new Uint8Array(encodedContent.length + arrType.length); //creating space
+		edata.set(encodedContent, 0);
+		edata.set(arrType, encodedContent.length);
+		return edata;
 	},
 	decode: function(data) {
 		let packet = new Uint8Array(data);
